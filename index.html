@@ -43,21 +43,36 @@
 
     .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-    header {
-      position: sticky; top: 0; z-index: 20;
-      backdrop-filter: saturate(1.2) blur(10px);
-      background: rgba(10,12,16,0.65);
-      border-bottom: 1px solid var(--border);
+    .hero-title { padding: 80px 0 40px; text-align: center; }
+    .hero-title h1 { 
+      font-family: Poppins, Inter, sans-serif; 
+      font-size: clamp(48px, 8vw, 72px); 
+      font-weight: 700; 
+      margin: 0 0 12px; 
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    .topbar { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
-    .brand { display: flex; align-items: center; gap: 14px; font-family: Poppins, Inter, sans-serif; }
-    .logo {
-      width: 40px; height: 40px; border-radius: 10px;
-      background: url('gabriel2.jpg') center/cover no-repeat;
-      box-shadow: 0 10px 25px var(--shadow);
+    .hero-title .subtitle { 
+      font-size: 18px; 
+      color: var(--muted); 
+      margin: 0; 
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
-    .brand h1 { font-size: 18px; margin: 0; font-weight: 700; letter-spacing: 0.3px; }
-    .pill { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { 
+      animation: fadeIn 1s ease-out forwards; 
+      opacity: 0; 
+    }
+    .fade-in:nth-child(2) { animation-delay: 0.2s; }
 
     .cta-main {
       display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 12px;
@@ -69,7 +84,7 @@
     .cta-main:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(212,160,23,0.45); }
     .cta-main svg { width: 18px; height: 18px; }
 
-    .hero { padding: 64px 0; }
+    .hero { padding: 40px 0 64px; }
     .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 36px; align-items: center; }
     .hero h2 { font-family: Poppins, Inter, sans-serif; font-size: clamp(28px, 5vw, 48px); line-height: 1.15; margin: 0 0 18px; }
     .hero p { color: var(--muted); font-size: 16px; margin: 0 0 22px; }
@@ -169,20 +184,13 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap topbar">
-      <div class="brand">
-        <div class="logo"></div>
-        <h1>Gabriel Wolf – Personal Trainer</h1>
-      </div>
-      <a class="cta-main" href="https://wa.me/1974075810" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.77 11.77 0 0 0 12.03 0C5.39 0 .03 5.36.03 11.98a11.9 11.9 0 0 0 1.59 6l-1.62 5.94 6.08-1.6a11.83 11.83 0 0 0 5.95 1.57h.01c6.63 0 12-5.36 12-11.98a11.86 11.86 0 0 0-3.52-8.43Zm-8.49 19.14h-.01a9.86 9.86 0 0 1-5.02-1.37l-.36-.21-3.61.95.97-3.53-.24-.37a9.86 9.86 0 0 1-1.53-5.31c0-5.42 4.43-9.83 9.88-9.83a9.82 9.82 0 0 1 6.97 2.89 9.81 9.81 0 0 1 2.91 6.95c0 5.41-4.43 9.83-9.96 9.83Zm5.46-7.38c-.3-.15-1.77-.87-2.05-.97-.28-.11-.49-.15-.69.15-.2.31-.79.97-.97 1.17-.18.21-.36.23-.66.08-.3-.15-1.26-.46-2.4-1.47-.88-.77-1.48-1.72-1.65-2-.17-.31 0-.47.13-.63.14-.14.3-.36.45-.54.15-.18.2-.31.31-.52.1-.21.05-.39-.02-.54-.08-.15-.69-1.65-.95-2.26-.25-.61-.53-.53-.73-.53h-.62c-.21 0-.54.08-.83.39-.28.31-1.08 1.06-1.08 2.58 0 1.52 1.11 2.99 1.26 3.19.15.21 2.18 3.32 5.3 4.53.74.32 1.32.51 1.77.65.74.24 1.41.2 1.94.12.59-.09 1.77-.72 2.02-1.42.25-.7.25-1.29.18-1.42-.07-.13-.27-.21-.57-.36Z"></path></svg>
-        Chamar no WhatsApp
-      </a>
-    </div>
-  </header>
-
   <main>
+    <section class="hero-title">
+      <div class="wrap">
+        <h1 class="fade-in">Gabriel Wolf</h1>
+        <p class="fade-in subtitle">Personal Trainer • Performance & Excellence</p>
+      </div>
+    </section>
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
