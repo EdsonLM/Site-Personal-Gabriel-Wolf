@@ -24,12 +24,19 @@
     html, body { height: 100%; }
     body {
       margin: 0;
-      background: radial-gradient(1200px 600px at 10% 10%, rgba(212,160,23,0.08), transparent),
-                  radial-gradient(800px 400px at 90% 20%, rgba(44,207,123,0.08), transparent),
-                  var(--bg);
+      background: var(--bg);
       color: var(--text);
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.6;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(212,160,23,0.08), transparent),
+                  radial-gradient(800px 400px at 90% 20%, rgba(44,207,123,0.08), transparent);
+      pointer-events: none;
     }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
@@ -120,6 +127,17 @@
     .ig-fab:hover { transform: translateY(-2px); box-shadow: 0 16px 34px rgba(0,0,0,0.45); }
     .ig-fab svg { width: 18px; height: 18px; }
 
+    @media (max-width: 600px) {
+      .whatsapp-fab, .ig-fab {
+        right: 12px;
+        bottom: 12px;
+        padding: 10px 12px;
+        font-size: 13px;
+      }
+      .ig-fab { bottom: 68px; }
+      .whatsapp-fab svg, .ig-fab svg { width: 16px; height: 16px; }
+    }
+
     footer { border-top: 1px solid var(--border); padding: 28px 0; margin-top: 24px; }
     .footer-grid { display: flex; align-items: center; justify-content: space-between; }
     .insta { display: inline-flex; align-items: center; gap: 10px; color: var(--muted); }
@@ -131,6 +149,22 @@
       .about .cards { grid-template-columns: 1fr; }
       .services { grid-template-columns: 1fr; }
       .testimonials { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      html { font-size: 15px; }
+      .wrap { padding: 0 16px; }
+      .hero { padding: 40px 0; }
+      .hero h2 { font-size: 28px; }
+      .hero p { font-size: 15px; }
+      .tags { gap: 8px; }
+      .tag { font-size: 12px; padding: 6px 10px; }
+      .hero-card img { aspect-ratio: 3/4; }
+      .section { padding: 32px 0; }
+      .section h3 { font-size: 20px; }
+      .about, .service, .testimonial { padding: 18px; }
+      .cta-block { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .footer-grid { flex-direction: column; gap: 12px; text-align: center; }
     }
   </style>
 </head>
